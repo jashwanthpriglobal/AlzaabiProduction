@@ -1,0 +1,1220 @@
+/* ChatWindow.css */
+.chat-window {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Table styles for markdown content */
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background-color: var(--table-background-color);
+  border: 1px solid var(--table-border-color);
+}
+ 
+.markdown-content thead {
+  background-color: var(--table-header-bg-color);
+}
+ 
+.markdown-content th {
+  padding: 0.75rem;
+  border: 1px solid var(--table-border-color);
+  font-weight: 600;
+  text-align: left;
+}
+ 
+.markdown-content td {
+  padding: 0.75rem;
+  border: 1px solid var(--table-border-color);
+}
+ 
+.markdown-content tr:nth-child(even) {
+  background-color: var(--table-row-alt-bg);
+}
+ 
+.markdown-content tr:hover {
+  background-color: var(--table-hover-bg);
+}
+ 
+.user-message {
+  align-self: flex-end;
+  background-color: var(--user-message-background);
+  color: var(--text-color);
+  border-radius: 18px;
+  padding: 0px 15px;
+  margin-bottom: 10px;
+  max-width: 75%;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 14px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+ 
+.assistant-message-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  width: 95%;
+}
+ 
+.assistant-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+ 
+.assistant-text {
+  color: var(--text-color);
+  max-width: 100%;
+  padding: 10px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  width: 100%;
+}
+ 
+.file-upload-bubble {
+  display: flex;
+  align-items: center;
+  background-color: var(--user-message-background);
+  color: var(--text-color);
+  padding: 8px 10px;
+  border-radius: 12px;
+  max-width: 250px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+ 
+.file-icon {
+  font-size: 18px;
+  color: #4a90e2;
+  margin-right: 8px;
+}
+ 
+.file-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+ 
+.loading-indicator {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 0;
+  padding: 0;
+  background-color: transparent;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+ 
+/* Subtle fade-in and fade-out animation for the text */
+.loading-indicator .text {
+  color: gray;
+  animation: fadeInOut 2s infinite;
+}
+ 
+/* Subtle fade-in and fade-out animation for emojis */
+.loading-indicator .emoji {
+  margin-left: 5px;
+  animation: fadeInOut 2s infinite;
+}
+ 
+/* Define subtle fade-in and fade-out animation */
+@keyframes fadeInOut {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+ 
+/* Hide scrollbar */
+/* .chat-window::-webkit-scrollbar {
+  display: none;
+}
+.chat-window {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+} */
+ 
+/* Table wrapper */
+.table-wrapper {
+  border: 1px solid var(--table-border-color);
+  padding: 25px 10px 10px 10px;
+  margin-bottom: 10px;
+  background: var(--table-background-color);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  position: relative;
+  max-width: 90%;
+  width: auto;
+  overflow-x: auto;
+  display: block;
+}
+ 
+/* Table content */
+/* .table-content {
+  padding: 0px;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: auto;
+  white-space: normal;
+} */
+
+.table-content {
+  padding: 0px;
+  white-space: normal;
+  overflow: unset;
+  max-height: none;
+}
+
+.table-wrapper:not(.full-screen) .table-actions {
+  position: absolute;
+  top: 4px;
+  right: 10px; /* 👈 push it to the right */
+  z-index: 10;
+}
+
+.markdown-content {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  display: block;
+}
+ 
+/* Full-Screen Mode */
+/* Full-Screen Mode - Ensure Full Table is Visible */
+.full-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--background-color);
+  z-index: 1000;
+  padding: 20px;
+  overflow: auto; /* Allow scrolling only when necessary */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 97%;
+  align-items: center;   /* 👈 push to left */
+  justify-content: center; /* 👈 push to top */
+  padding: 40px;              /* Optional: space from edges */
+}
+ 
+.full-screen .table-wrapper {
+  width: 100%;
+  max-width: 100%;
+  height: 100%; /* 👈 Fill the full height of the screen */
+  max-height: 100%;
+  height: auto;
+}
+
+
+.full-screen .table-content {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+}
+
+ 
+/* Close Full-Screen Button */
+.close-fullscreen-btn {
+  position: absolute;
+  top: 15px;
+  right: 40px;
+  background: #838282;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  z-index: 1100;
+}
+ 
+.close-fullscreen-btn:hover {
+  background: #3d3838;
+}
+ 
+/* Ensuring the icons align properly */
+/* Ensuring the icons align properly to the right */
+/* Ensuring the icons align properly to the right */
+/* .table-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  justify-content: flex-end; 
+  width: 100%;
+}
+
+.full-screen .table-actions {
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  right: auto;
+  top: auto;
+  margin-top: 15px;
+}
+  
+*/
+
+/* Normal mode - right aligned */
+.table-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+/* Full-screen mode - centered */
+.full-screen .table-actions {
+  display: flex;
+  justify-content: center;
+  position: static;
+  margin: 15px auto 20px;
+  width: 100%;
+  transform: none;
+}
+
+/* Table Action Icons */
+.download-icon, .expand-icon {
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--table-accent-color);
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+ 
+/* Ensure buttons stay in correct order */
+.download-icon {
+  order: 0; /* Appears first */
+}
+ 
+.expand-icon {
+  order: 1; /* Appears second */
+}
+ 
+.download-icon:hover, .expand-icon:hover {
+  color: #0056b3;
+  transform: scale(1.1);
+}
+ 
+/* Chat Window Layout */
+.chat-window-container {
+  display: flex;
+  height: calc(100vh - 60px); /* Below Header */
+  width: 100%;
+  overflow: hidden;
+}
+/* Chat Container */
+.chat-container {
+  display: flex;
+  height: calc(100vh - 60px);
+  width: 100%;
+  position: relative;
+}
+ 
+/* Left Edge Detection for Hover */
+.hover-detect-area {
+  position: fixed;
+  left: 0;
+  top: 72px;
+  width: 10px; /* Very thin area to detect hover */
+  height: calc(100vh - 72px);
+  z-index: 1000;
+}
+ 
+/* Sidebar - Default Hidden */
+.sidebar {
+  width: 260px;
+  background: var(--background-color);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--hover-background-color);
+  position: fixed;
+  left: -260px; /* Hides the sidebar */
+  top: 72px;
+  bottom: 0;
+  height: calc(100vh - 72px);
+  transition: left 0.3s ease-in-out;
+  overflow-y: auto;
+ 
+}
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+ 
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+/* Show Sidebar on Hover */
+.sidebar.visible {
+  left: 0;
+}
+ 
+/* Sidebar When Pinned */
+.sidebar.pinned {
+  left: 0;
+}
+ 
+/* Sidebar Header */
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+ 
+/* Pin Button */
+.pin-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--button-color);
+  transition: color 0.2s ease-in-out;
+}
+.pin-icon {
+  transition: transform 0.2s ease-in-out;
+}
+ 
+/* Highlight When Pinned */
+.pinned-icon {
+  color: #007bff !important; /* Blue color for pinned state */
+}
+ 
+/* Ensure Chat Window Doesn't Move */
+.chat-window {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+ 
+ 
+.start-new-chat {
+  background: #4a90e2; /* Bright Blue */
+  color: white;
+  border: none;
+  padding: 8px 14px; /* Reduced padding to make the button shorter */
+  border-radius: 6px; /* Slightly smaller radius */
+  font-size: 14px; /* Reduced font size */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+ 
+/* Hover Effect */
+.start-new-chat:hover {
+  background: #0056b3; /* Darker Blue */
+  transform: scale(1.05);
+}
+ 
+/* Click Effect */
+.start-new-chat:active {
+  background: #004494;
+  transform: scale(0.98);
+}
+ 
+ 
+/* Recent Chats */
+.recent-chats {
+  margin-top: 10px;
+}
+ 
+.recent-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 8px;
+}
+ 
+ 
+ 
+/* Chat List Styling */
+.chat-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ 
+/* Individual Chat Item */
+.chat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  position: relative;
+}
+ 
+/* Highlight Active Session */
+.chat-item.active-session {
+  background-color: rgba(135, 191, 255, 0.3); /* Light blue */
+  color: #007bff; /* Blue text */
+  font-weight: 600;
+  border-left: 4px solid #007bff;
+  transition: all 0.3s ease-in-out;
+}
+ 
+/* Hover Effect */
+.chat-item:hover {
+  background-color: rgba(135, 191, 255, 0.5);
+}
+ 
+/* Three Dots Button */
+.menu-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--text-color);
+  transition: color 0.2s ease-in-out;
+}
+ 
+/* Dropdown Menu (Light/Dark Mode Adaptive) */
+.menu-dropdown {
+  position: absolute;
+  right: 10px;
+  top: 100%;
+  background: var(--menu-background); /* Uses theme variable */
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  padding: 6px 0;
+  z-index: 100;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+ 
+/* Dropdown Items */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--menu-text-color); /* Adaptive text color */
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  transition: background 0.2s ease-in-out;
+}
+ 
+/* Hover Effect on Menu Items */
+.menu-item:hover {
+  background: var(--menu-hover-bg);
+}
+ 
+/* Delete Button Styling */
+.menu-item.delete {
+  color: #ff4d4d; /* Red for delete */
+}
+ 
+.menu-item.delete:hover {
+  background: rgba(255, 77, 77, 0.1);
+}
+ 
+/* Menu Icon Styling */
+.menu-icon {
+  font-size: 16px;
+}
+ 
+.disabled-session {
+  pointer-events: none;  /* Prevent clicks */
+  opacity: 0.5;         /* Dim the session visually */
+  cursor: not-allowed;  /* Show a blocked cursor */
+}
+ 
+.start-new-chat.disabled-session {
+  pointer-events: none;  /* Disable clicks */
+  opacity: 0.5;         /* Dim the button */
+  cursor: not-allowed;  /* Show blocked cursor */
+}
+ 
+/* Overlay for Popup */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+ 
+/* Confirmation Popup */
+.confirmation-popup {
+  background: var(--background-color);
+  color: var(--text-color);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  min-width: 300px;
+}
+ 
+/* Popup Buttons */
+.popup-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+ 
+/* Cancel Button */
+.cancel-btn {
+  background: var(--button-background);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+ 
+.cancel-btn:hover {
+  background: var(--hover-background);
+}
+ 
+/* Delete Button */
+.delete-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+ 
+.delete-btn:hover {
+  background: #d43f3f;
+}
+ 
+ 
+/* Temporary Chat Toggle Button */
+.temporary-chat-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+/* Bubble around the Temporary Button */
+.temporary-chat-bubble {
+  display: flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 50px;
+  border: 1px solid var(--border-color);
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  gap: 6px; /* Added space between icon and text */
+}
+ 
+.temporary-chat-bubble:hover {
+  background: var(--hover-background);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+ 
+/* Icon Styles */
+.temporary-chat-icon {
+  font-size: 18px;
+  color: gray;
+  transition: color 0.3s ease-in-out;
+}
+ 
+/* Active (Green) Icon */
+.temporary-chat-icon.active {
+  color: #1db954;
+}
+ 
+/* Light Mode - Black Text */
+[data-theme='light'] .temporary-chat-label {
+  color: #000;
+}
+ 
+/* Dark Mode - White Text */
+[data-theme='dark'] .temporary-chat-label {
+  color: #fff;
+}
+
+/* Reduced font size for Temporary Chat label */
+.temporary-chat-label {
+  font-size: 12px; /* Adjusted for smaller text */
+}
+
+.temporary-chat-banner {
+  position: fixed;
+  top: 75px; /* Adjust top spacing as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  background: var(--banner-background);
+  color: var(--banner-text);
+  padding: 3px 12px;
+  border-radius: 16px;
+  font-weight: 500;
+  font-size: 13px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+
+  width: fit-content;
+  max-width: 90%;
+}
+/* Info Icon */
+.info-icon {
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--info-text);
+  transition: color 0.3s ease-in-out;
+}
+ 
+.info-icon:hover {
+  color: var(--info-hover-text);
+}
+ 
+ 
+ 
+/* --- New CSS for Recents Header and Delete All Menu --- */
+.recents-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative; /* Needed for absolute positioning of dropdown */
+  margin-bottom: 8px; /* Adjust as needed */
+}
+ 
+.recents-menu-button {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 5px;
+  line-height: 1;
+  color: var(--text-color);
+}
+ 
+/* Dropdown container for the Recents menu */
+.recents-menu-dropdown {
+  position: absolute;
+  top: 100%; /* Directly below the header */
+  right: 0;
+  background: var(--background-color); /* Use your theme variable or a fallback */
+  border: 1px solid var(--border-color); /* Use your theme variable */
+  min-width: 120px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 100;
+  padding: 5px 0;
+}
+ 
+/* Dropdown menu items */
+.recents-menu-dropdown .menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  text-align: left;
+  color: var(--text-color);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+ 
+.recents-menu-dropdown .menu-item:hover {
+  background: var(--hover-background);
+}
+ 
+/* Special styling for the Delete All item */
+.recents-menu-dropdown .delete-all {
+  color: #d9534f; /* Danger color */
+}
+
+
+.summary-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* Make the content scrollable while keeping header and footer fixed */
+.summary-popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 700px;
+  max-height: 70vh; /* Restrict height */
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Align content to the left */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Scrollable text container */
+.summary-popup-body {
+  flex-grow: 1;
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 10px;
+  text-align: left; /* Ensure text is left-aligned */
+}
+
+/* Ensure paragraphs, lists, and headings are also left-aligned */
+.summary-popup-body p,
+.summary-popup-body ul,
+.summary-popup-body ol,
+.summary-popup-body h2 {
+  text-align: left;
+}
+
+/* Restore Blue Title Color */
+.summary-popup-content h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #007bff; /* Keep titles blue */
+  position: sticky;
+  top: 0;
+  background: white;
+  padding-bottom: 10px;
+  z-index: 10;
+}
+
+/* Restore Blue for Bold Text */
+.summary-popup-content strong {
+  color: #007bff;
+}
+
+/* Sticky Footer (for Close button) */
+.summary-popup-footer {
+  text-align: center;
+  padding-top: 10px;
+  background: white;
+  position: sticky;
+  bottom: 0;
+  padding-bottom: 10px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+/* Close Button */
+.summary-close-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100px;
+}
+
+.summary-close-btn:hover {
+  background: #d43f3f;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #007bff;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+  margin-left: 8px; /* Add some space between the icon and the spinner */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Position Search Icon Next to Sidebar Toggle */
+.search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.search-icon {
+  font-size: 16px;
+  color: #007BFF;
+  transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
+}
+
+.search-icon:hover {
+  color: #0056b3;
+  transform: scale(1.2);
+}
+
+.gradient-button {
+  background: linear-gradient(to right, #1E90FF, #32CD32); /* Adjust colors */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between text and icon */
+  transition: 0.3s;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.gradient-button:hover {
+  filter: brightness(1.1);
+}
+
+.graph-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 10px;
+  background: var(--table-background-color);
+  border: 1px solid var(--table-border-color);
+  border-radius: 8px;
+}
+
+.graph-expand-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.graph-expand-button:hover {
+  background: #0056b3;
+}
+
+.graph-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2000;
+  background: var(--background-color);
+  padding: 20px;
+  overflow: auto;
+}
+
+.graph-fullscreen .graph-expand-button {
+  background: #d43f3f;
+}
+
+.graph-fullscreen .graph-expand-button:hover {
+  background: #a92828;
+}
+/* Graph Plot Wrapper */
+/* Graph Plot Wrapper */
+.plot-wrapper {
+  position: relative;
+  border: 1px solid var(--table-border-color);
+  background: var(--table-background-color);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 25px 10px 10px 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  max-width: 90%;
+}
+
+/* Non-fullscreen mode: actions container positioning */
+.plot-wrapper:not(.full-screen) .plot-actions {
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+}
+
+/* Fullscreen mode: wrapper styling */
+.full-screen.plot-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2000;
+  padding: 20px;
+  background: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Fullscreen mode: actions container positioning */
+.full-screen .plot-actions {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+}
+
+/* Plot content area */
+.plot-content {
+  max-height: 400px;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+/* Updated Expand/Compress Button Style for Graph (matching table style) */
+.plot-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--table-accent-color);
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.plot-actions button:hover {
+  color: #0056b3;
+  transform: scale(1.1);
+}
+
+.plot-actions button:focus {
+  outline: none;
+}
+
+.full-screen .plot-content {
+  max-height: 85vh;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.chat-window {
+  overflow-x: hidden !important; /* ✅ prevents horizontal scroll */
+}
+
+
+.assistant-text {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal; /* ✅ important to prevent horizontal scroll */
+}
+
+
+.markdown-content {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+} 
+
+/* Make code blocks wrap instead of scroll */
+.markdown-content pre code {
+  display: block;
+  overflow-x: auto;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background-color: var(--code-bg);
+  color: var(--code-text);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.markdown-content pre {
+  margin-top: 4px;     /* 🔽 Shrink from default (usually 16px) */
+  margin-bottom: 4px;
+}
+
+/* ✅ Dark Mode Scrollbar Styling */
+[data-theme='dark'] .chat-window::-webkit-scrollbar {
+  width: 8px;
+}
+
+[data-theme='dark'] .chat-window::-webkit-scrollbar-track {
+  background: #1e1e1e; /* Match your dark background */
+}
+
+[data-theme='dark'] .chat-window::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+  border: 2px solid #1e1e1e; /* Creates padding around the thumb */
+}
+
+[data-theme='dark'] .chat-window::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+
+/* Firefox (scrollbar styling) */
+[data-theme='dark'] .chat-window {
+  scrollbar-width: thin;
+  scrollbar-color: #555 #1e1e1e;
+}
+
+/* ✅ Light Mode Scrollbar Styling */
+[data-theme='light'] .chat-window::-webkit-scrollbar {
+  width: 8px;
+}
+
+[data-theme='light'] .chat-window::-webkit-scrollbar-track {
+  background: #f2f2f2; /* Light background */
+}
+
+[data-theme='light'] .chat-window::-webkit-scrollbar-thumb {
+  background-color: #aaa;  /* Scroll thumb */
+  border-radius: 4px;
+  border: 2px solid #f2f2f2; /* Padding around thumb */
+}
+
+[data-theme='light'] .chat-window::-webkit-scrollbar-thumb:hover {
+  background-color: #888;
+}
+
+/* Firefox (scrollbar styling) */
+[data-theme='light'] .chat-window {
+  scrollbar-width: thin;
+  scrollbar-color: #aaa #f2f2f2;
+}
+
+
+.agent-status-message {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  color: #444;
+  gap: 6px;
+  animation: fadeIn 0.3s ease-in;
+}
+ 
+.agent-status-message .emoji {
+  animation: flicker 1.2s infinite;
+}
+ 
+.agent-status-message .dots {
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 1px;
+  animation: bounce 1.2s infinite;
+}
+ 
+ 
+/* Emoji flicker */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.6; }
+}
+ 
+/* Optional fade-in when message appears */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+.dot-loader {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  height: 24px;
+}
+.dot-loader span {
+  width: 4px;
+  height: 4px;
+  background: #555;
+  border-radius: 50%;
+  display: inline-block;
+  animation: dot-blink 1s infinite alternate;
+}
+.dot-loader span:nth-child(2) { animation-delay: .2s; }
+.dot-loader span:nth-child(3) { animation-delay: .4s; }
+@keyframes dot-blink {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+ 
+
+
+.menu-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border: 1px solid #ccc;
+  z-index: 999;
+  transition: top 0.2s ease, bottom 0.2s ease;
+}
+ 
+.menu-dropdown.open-upward {
+  top: auto;
+  bottom: 100%;
+}

@@ -1,0 +1,173 @@
+/* ✅ Modern & Clean Search Modal */
+.search-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(24, 24, 24, 0.95); /* Dark with slight transparency */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 16px;
+    width: 480px;
+    border-radius: 10px;
+    z-index: 1000;
+    color: white;
+    height: auto;
+    max-height: 450px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* ✅ Close Button */
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    position: absolute;
+    right: 14px;
+    top: 10px;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .close-btn:hover {
+    color: #ff4d4d;
+  }
+  
+  /* ✅ Search Bar Fix (Prevents Overflow) */
+  .search-input {
+    width: calc(100% - 28px); /* Adjusted width to fit properly */
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease-in-out;
+    box-sizing: border-box; /* Ensures padding doesn’t exceed width */
+  }
+  
+  
+  .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+  }
+  
+  .search-input:focus {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  /* ✅ Search Results Section */
+  .search-results {
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    width: 100%;
+    background: transparent;
+    border-radius: 8px;
+    padding: 6px 0;
+    margin-top: 8px;
+  }
+  
+  /* ✅ Individual Search Result */
+  .search-result {
+    padding: 10px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 6px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  /* ✅ Session Name (Always on Top) */
+  .search-result .session-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 2px;
+  }
+  
+  /* ✅ Highlighted Search Text (Below Session Name) */
+  /* ✅ Highlighted Search Text (Now Yellow) */
+  .search-result .highlighted-text {
+    font-size: 12px;
+    color: #ffdd57; /* Yellow highlight */
+    font-weight: bold;
+  }
+  
+  
+  /* ✅ Hover Effect */
+  .search-result:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.01);
+  }
+  
+  /* ✅ No Results Message */
+  .no-results {
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+  }
+  
+  /* ✅ Section Headers (Today, Yesterday, etc.) */
+  .search-section-header {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 5px 12px;
+  }
+  
+  /* ✅ Recent Sessions Section */
+  .recent-sessions {
+    margin-top: 8px;
+    width: 100%;
+    text-align: left;
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden; /* Ensures no horizontal scrolling */
+  }
+  
+  /* ✅ Recent Sessions List */
+  .recent-sessions ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* ✅ Recent Session Item */
+  .recent-sessions li {
+    padding: 10px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    font-size: 13px;
+  }
+  
+  .recent-sessions li:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.01);
+  }
+  
+  /* ✅ Smooth Minimal Scrollbar */
+  .search-results::-webkit-scrollbar,
+  .recent-sessions::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .search-results::-webkit-scrollbar-thumb,
+  .recent-sessions::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+  }
+  
+  .search-results::-webkit-scrollbar-track,
+  .recent-sessions::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  

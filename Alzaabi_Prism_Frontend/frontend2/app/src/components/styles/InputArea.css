@@ -1,0 +1,317 @@
+/* InputArea.css */
+.input-area {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: transparent;
+  border-top: none;
+  max-width: 100%;
+  position: relative;
+}
+ 
+.chat-input-container {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+ 
+}
+ 
+.chat-input {
+  flex-grow: 1;
+  padding: 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 22px;
+  padding: 15px 90px 15px 40px;
+  background-color: var(--input-background-color);
+  color: var(--text-color);
+  outline: none;
+  resize: none;
+  font-family: 'Inter', Arial, sans-serif;
+  height: 25px;
+  line-height: 26px;
+  min-height: 20px;
+  max-height: 190px; /* optional max to prevent extreme growth */
+ 
+}
+ 
+.attachment-button {
+  position: absolute;
+  left: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--button-color);
+  top: 17px;
+}
+ 
+.send-button {
+  position: absolute;
+  right: 45px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--button-color);
+}
+ 
+.mic-button {
+  position: absolute;
+  right: 9px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--button-color);
+  font-size: 22px; /* Slightly bigger for better visibility */
+  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+ 
+.mic-button.recording {
+  color: red; /* Subtle color change to indicate recording */
+  transform: scale(1.1); /* Slight zoom-in effect */
+}
+ 
+/*.mic-button:hover {
+  color: #ff4d4d; /* Light red on hover */
+  /*transform: scale(1.1);*/
+/*}*/
+ 
+ 
+@keyframes pulse-glow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 8px 3px rgba(0, 255, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 8px 3px rgba(0, 255, 0, 0.5);
+  }
+}
+ 
+.chat-input::-webkit-scrollbar {
+  display: none;
+}
+ 
+.chat-input {
+  scrollbar-width: none; /* Firefox */
+}
+ 
+ 
+.chat-input {
+  -ms-overflow-style: none;
+}
+ 
+ 
+.mic-processing {
+  position: absolute;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+}
+ 
+.spinner-icon {
+  font-size: 18px;
+  color: #007bff;
+  animation: spin 1s linear infinite;
+}
+ 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+ 
+.attachment-button {
+  margin-right: 10px;
+  bottom: 15px;
+}
+
+.send-button,
+.stop-button,
+.mic-button {
+  position: static; /* REMOVE absolute */
+}
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+.recording-bar {
+  display: flex;
+  align-items: center;
+  background: #d3d3d3;
+  border-radius: 20px;
+  padding: 18px 28px;
+  width: 100%;
+  min-height: 60px;
+  gap: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.16);
+}
+ 
+.waveform-container {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+ 
+.recording-actions {
+  display: flex;
+  gap: 8px;
+}
+ 
+.recording-cancel,
+.recording-confirm {
+  background: none;
+  border: none;
+  color: #131313;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+ 
+.recording-cancel:hover {
+  background: #d3d3d3;
+  color: #ff7676;
+}
+.recording-confirm:hover {
+  background: #d3d3d3;
+  color: #87ff87;
+}
+ 
+ 
+ 
+.input-area .chat-input-container,
+.input-area .recording-bar {
+  width: 100%;
+  min-height: 85px;        /* Match your normal bar height */
+  box-sizing: border-box;
+  border-radius: 20px;
+  background: #f2f2f2;     /* Or whatever color you use */
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+}
+ 
+.processing-spinner-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 44px;       /* or whatever matches your waveform height */
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+.chat-input-container {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: #f4f4f4;
+  border-radius: 20px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.chat-input {
+  flex: 1;
+  margin: 0 12px;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  resize: none;
+  outline: none;
+  color: #333;
+}
+
+.chat-right-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.send-button,
+.stop-button,
+.mic-button {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stop-button {
+  width: 36px;
+  height: 36px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  padding: 0;
+}
+
+.stop-icon {
+  width: 14px;
+  height: 14px;
+  background-color: black;
+  border-radius: 2px;
+}
+
+
+[data-theme="dark"] .stop-button {
+  background-color: #333;
+}
+
+[data-theme="dark"] .stop-icon {
+  background-color: white;
+}
+

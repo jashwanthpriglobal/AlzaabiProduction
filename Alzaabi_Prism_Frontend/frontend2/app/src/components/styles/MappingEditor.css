@@ -1,0 +1,164 @@
+/* Make the entire component scrollable */
+.channel-mapping-container {
+    max-height: calc(100vh - 150px); /* adjust if your header is taller */
+    overflow-y: auto;
+    padding: 20px;
+  }
+  
+  /* Ensure table itself has max height */
+  .mapping-table {
+    overflow-x: auto;
+    width: 100%;
+  }
+  
+  /* Sticky header fix */
+  /* .sticky-header th {
+    position: sticky;
+    top: 0;
+    background-color: #f9f9f9;
+    z-index: 1;
+  }
+   */
+
+  /* MappingEditor.css */
+/* 
+.mapping-table .MuiTableCell-head {
+  font-weight: bold;
+  background-color: #f4f6f8;
+  border-bottom: 2px solid #ccc;
+} */
+/* 
+.mapping-table .MuiTableCell-root {
+  padding: 4px 8px;
+  border-right: 1px solid #e0e0e0;
+} */
+
+.mapping-table .MuiTableRow-root {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* .mapping-table .MuiTableRow-root:hover {
+  background-color: #f9f9f9;
+} */
+
+.mapping-table .MuiTextField-root input {
+  font-size: 14px;
+  padding: 6px 8px;
+}
+
+/* .mapping-table .MuiTableHead-root {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+ */
+
+/* Avoid double scroll */
+body {
+  overflow-x: hidden;
+}
+
+ 
+
+.mapping-table .MuiTableCell-head {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #f4f6f8;
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+}
+
+
+.mapping-table th:first-child,
+.mapping-table td:first-child {
+  position: sticky;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 5;
+  font-weight: bold;
+}
+
+
+
+.mapping-table .MuiTableCell-head {
+  font-weight: bold;
+  background-color: #f4f6f8;
+  border-bottom: 2px solid #ccc;
+}
+
+.mapping-table .MuiTableCell-root {
+  padding: 4px 8px;
+  font-size: 13px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.mapping-table .MuiTableRow-root:hover {
+  background-color: #f1f1f1;
+}
+
+
+
+/* new test below */
+
+.channel-mapping-container {
+  padding: 24px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mapping-table th, .mapping-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.mapping-table th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+  text-align: center;
+  color: #333;
+}
+
+.mapping-table td {
+  vertical-align: middle;
+}
+
+.mapping-table input {
+  padding: 8px;
+}
+
+button {
+  text-transform: none !important;
+}
+
+button.MuiButton-outlinedPrimary {
+  color: #1976d2;
+  border-color: #1976d2;
+}
+
+button.MuiButton-outlinedPrimary:hover {
+  background-color: rgba(25, 118, 210, 0.04);
+}
+
+button.MuiButton-outlinedError {
+  color: #d32f2f;
+  border-color: #d32f2f;
+}
+
+button.MuiButton-outlinedError:hover {
+  background-color: rgba(211, 47, 47, 0.04);
+}
+
+button.MuiButton-contained {
+  background-color: #1976d2;
+  color: white;
+}
+
+button.MuiButton-contained:hover {
+  background-color: #1565c0;
+}
+
+
+

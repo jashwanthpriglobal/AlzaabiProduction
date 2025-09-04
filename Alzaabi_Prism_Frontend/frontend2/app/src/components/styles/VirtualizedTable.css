@@ -1,0 +1,157 @@
+/* .virtual-table-wrapper {
+    border: 1px solid var(--table-border-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+  }
+  
+  .table-header {
+    display: flex;
+    background-color: var(--table-header-bg-color, #f0f0f0);
+    border-bottom: 1px solid var(--table-border-color);
+  }
+  
+  .virtual-table-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .table-header {
+    flex-shrink: 0;
+    height: 40px;
+  }
+  
+  .table-row {
+    display: flex;
+    border-bottom: 1px solid var(--table-border-color);
+  }
+  
+  .table-cell {
+    flex: 1;
+    padding: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-right: 1px solid #eee;
+  }
+  
+  .table-cell:last-child {
+    border-right: none;
+  }
+  
+  .header-cell {
+    font-weight: bold;
+    background: var(--table-header-bg-color, #eaeaea);
+  }
+  
+  .even {
+    background: #ffffff;
+  }
+  
+  .odd {
+    background: #f9f9f9;
+  }
+   */
+
+   .virtual-table-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    border: 1px solid var(--table-border-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--table-background-color);
+  }
+  
+  /* Table Header */
+  .table-header {
+    display: flex;
+    flex-shrink: 0;
+    height: 40px;
+    background-color: var(--table-header-bg-color, #f0f0f0);
+    border-bottom: 1px solid var(--table-border-color);
+    border-radius: 8px 8px 0 0;
+  }
+  
+  /* Header Cell */
+  .header-cell {
+    font-weight: bold;
+    background: var(--table-header-bg-color, #eaeaea);
+    color: var(--text-color);
+    flex: 1;
+    padding: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-right: 1px solid var(--table-border-color);
+  }
+  
+  .header-cell:last-child {
+    border-right: none;
+  }
+  
+  /* Table Row */
+  .table-row {
+    display: flex;
+    border-bottom: 1px solid var(--table-border-color);
+  }
+  
+  /* Table Cell */
+  .table-cell {
+    flex: 1;
+    padding: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    /* 👇 Removed the vertical line */
+    /* border-right: 1px solid var(--table-border-color); */
+  }
+  
+  
+  /* Zebra Striping */
+  .even {
+    background: #ffffff;
+  }
+  
+  .odd {
+    background: #f9f9f9;
+  }
+  
+  /* 🎯 DARK MODE STYLES */
+  [data-theme='dark'] .virtual-table-wrapper {
+    background-color: var(--table-background-color);
+    border: 1px solid var(--table-border-color);
+  }
+  
+  [data-theme='dark'] .table-header {
+    background-color: #3a3a3a;
+    color: white;
+  }
+  
+  [data-theme='dark'] .header-cell {
+    background-color: #3a3a3a;
+    color: #ffffff;
+  }
+  
+  [data-theme='dark'] .table-cell {
+    background-color: #2e2e2e;
+    color: #e0e0e0;
+  }
+  
+  [data-theme='dark'] .even {
+    background-color: #2a2a2a;
+  }
+  
+  [data-theme='dark'] .odd {
+    background-color: #1f1f1f;
+  }
+  
+
+  .table-row:hover {
+    background-color: var(--table-hover-bg, #f3f4f6); /* or any theme variable */
+  }

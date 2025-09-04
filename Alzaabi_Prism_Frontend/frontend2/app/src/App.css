@@ -1,0 +1,130 @@
+/* App.css */
+/* App.css */
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --header-background-color: #ffffff;
+  --input-background-color: #f2f2f2;
+  --button-color: #4a4a4a;
+  --user-message-background: #d3d3d3;
+  --assistant-message-background: #f9f9f9;
+  --hover-background-color: #e0e0e0; 
+  --hover-text-color: #333333;
+  --table-background-color: white;
+  --table-border-color: #dddddd;
+  --table-header-bg-color: #f0f0f0;
+  --table-row-alt-bg: #f9fafb;
+  --table-hover-bg: #f3f4f6;
+  --menu-background: #fff;  /* White background */
+  --menu-text-color: #222;  /* Dark text */
+  --menu-hover-bg: rgba(0, 0, 0, 0.05); /* Slight gray hover */
+  --border-color: #ddd;
+  --hover-background: rgba(0, 0, 0, 0.05);
+  --banner-background: rgba(0, 0, 0, 0.05);
+  --banner-text: #333;
+  --info-bg: #ddd;
+  --info-text: #555;
+  --info-hover-bg: #bbb;
+  --code-bg: #f4f4f4;
+  --code-text: #1e1e1e;
+}
+
+[data-theme='dark'] {
+  --background-color: #1e1e1e;
+  --text-color: #e0e0e0;
+  --header-background-color: #333333;
+  --input-background-color: #2e2e2e;
+  --button-color: #d3d3d3;
+  --user-message-background: #2f2f2f;
+  --assistant-message-background: #444444;
+  --hover-background-color: #555555; 
+  --hover-text-color: #e0e0e0; 
+  --table-background-color: #2a2a2a;
+  --table-border-color: #555555;
+  --table-header-bg-color: #444444;
+  --table-row-alt-bg: #3a3a3a;
+  --table-hover-bg: #4a4a4a;
+  --menu-background: #222; /* Dark background */
+  --menu-text-color: #fff; /* Light text */
+  --menu-hover-bg: rgba(255, 255, 255, 0.1); /* Slight light hover */
+  --border-color: #444;
+  --hover-background: rgba(255, 255, 255, 0.1);
+  --banner-background: rgba(255, 255, 255, 0.1);
+  --banner-text: #fff;
+  --info-bg: #444;
+  --info-text: #ccc;
+  --info-hover-bg: #666;
+  --code-bg: #2d2d2d;
+  --code-text: #f8f8f2;
+}
+
+
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw; 
+  overflow: hidden; 
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 50px);
+  background-color: var(--background-color);
+  margin: 0 auto;
+  max-width: 780px;
+  width: 100%;
+  overflow: hidden;
+}
+/* Simple overlay for your pop-up (in App.css, for example) */
+.chat-style-banner {
+  position: fixed;
+  /* near the top, about 15px down so it’s not flush with the browser edge */
+  top: 15px;
+  /* center it horizontally */
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* ChatGPT’s red alert color, or pick your own (#f44336 is a common red) */
+  background-color: #f44336;
+  /* White text */
+  color: #fff;
+  
+  /* Add some padding, a slight border-radius, and a shadow */
+  padding: 8px 16px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  
+  /* Make the text bold but not huge */
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+
+  /* keep it on top of everything else */
+  z-index: 9999;
+}
+
+.back-to-dashboard-button:disabled {
+  pointer-events: none;    /* Prevent clicks */
+  opacity: 0.5;            /* Dim the button visually */
+  cursor: not-allowed;     /* Show a blocked cursor */
+}
+
+
+
+
